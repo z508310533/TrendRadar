@@ -1,0 +1,14 @@
+name: Send Feishu Message
+on:
+  push:
+    branches:
+      - main
+jobs:
+  send_message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send message to Feishu
+        uses: appleboy/feishu-action@master
+        with:
+          url: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          message: 'GitHub 有新推送'
